@@ -4,6 +4,8 @@
  */
 package application;
 
+import boardgame.Position;
+
 /**
  *
  * @author artuz
@@ -14,8 +16,9 @@ public class sistema_xadrez {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("teste");
         
+        Position pos = new Position(3, 5);
+        System.out.println(pos);
     }
     
 }

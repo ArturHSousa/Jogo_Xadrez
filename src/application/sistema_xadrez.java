@@ -4,6 +4,7 @@
  */
 package application;
 
+import Chess.ChessMatch;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
@@ -19,7 +20,8 @@ public class sistema_xadrez {
      */
     public static void main(String[] args) {
         
-        Board board = new Board(8, 8);
+        ChessMatch chessMatch = new Chess.ChessMatch();
+                UI.printBoard(chessMatch.getPieces());
          
     }
     

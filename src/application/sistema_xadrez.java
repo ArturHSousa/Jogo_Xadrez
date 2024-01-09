@@ -5,9 +5,9 @@
 package application;
 
 import Chess.ChessMatch;
-import boardgame.Board;
-import boardgame.Piece;
-import boardgame.Position;
+import Chess.ChessPiece;
+import Chess.ChessPosition;
+import java.util.Scanner;
 
 /**
  *
@@ -19,10 +19,21 @@ public class sistema_xadrez {
     //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o NetBeans com o tema "Dark Nimbus"
     
     public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+        ChessMatch chessMatch = new ChessMatch();
         
-        ChessMatch chessMatch = new Chess.ChessMatch();
-                UI.printBoard(chessMatch.getPieces());
-         
+                while (true) {
+                    UI.printBoard(chessMatch.getPieces());
+                    System.out.println();
+                    System.out.print("Source: ");
+                    ChessPosition source = UI.readChessPosition(sc);
+                    
+                    System.out.println();
+                    System.out.print("Target: ");
+                    ChessPosition target = UI.readChessPosition(sc);
+                    
+                    ChessPiece capturedPiece = chessMatch.perforChessMove(source, target);
+                }
     }
     
 }

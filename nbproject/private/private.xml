@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/Chess/ChessPosition.java</file>
+            <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/application/sistema_xadrez.java</file>
+            <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/boardgame/Board.java</file>
             <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/Chess/ChessException.java</file>
             <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/Chess/ChessMatch.java</file>
+            <file>file:/D:/Projetos%20Java%20NB/sistema-xadrez/src/application/UI.java</file>
         </group>
     </open-files>
 </project-private>

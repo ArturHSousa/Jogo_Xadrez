@@ -15,9 +15,9 @@ import boardgame.Position;
  */
 public class sistema_xadrez {
 
-    /**
-     * @param args the command line arguments
-     */
+
+    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o NetBeans com o tema "Dark Nimbus"
+    
     public static void main(String[] args) {
         
         ChessMatch chessMatch = new Chess.ChessMatch();

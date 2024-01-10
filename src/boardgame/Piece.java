@@ -8,7 +8,7 @@ package boardgame;
  *
  * @author artuz
  */
-public class Piece {
+public abstract class Piece {
     
     protected Position position; //somente essa camada pode usar essa classe por ser Protected
     private Board board;
@@ -24,4 +24,22 @@ public class Piece {
 
     //Apenas sera usado o Get do tabuleiro(Board) para garantir que o tabuleiro não seja alterado
     
+    public abstract boolean[][] possibleMoves();
+    
+    public boolean possibleMove(Position position){
+        return possibleMoves()[position.getRow()][position.getColumn()];
+        
+    }
+    //boolean só retorna verdadeiro ou falso 
+    public boolean isThereAnyPossibleMove(){
+        boolean [][] mat = possibleMoves();
+        for (int i=0; i<mat.length; i++) {
+            for (int j=0; j<mat.length; i++) {
+                if (mat[i][j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

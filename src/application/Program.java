@@ -4,6 +4,7 @@
  */
 package application;
 
+import Chess.ChessException;
 import Chess.ChessMatch;
 import Chess.ChessPiece;
 import Chess.ChessPosition;
@@ -40,7 +41,7 @@ public class Program {
 
                         ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
                     }
-                    catch (Chess.ChessException e){
+                    catch (ChessException e){
                         System.out.println(e.getMessage());
                         sc.nextLine();   
                     }

@@ -7,6 +7,7 @@ package application;
 import Chess.ChessMatch;
 import Chess.ChessPiece;
 import Chess.ChessPosition;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Scanner;
 public class Program {
 
     //[][] mat (matriz)
-    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o NetBeans com o tema "Dark Nimbus"
+    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o NetBeans com o tema "Dark Nimbus" ou o GitBash
     
     public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
@@ -37,13 +38,16 @@ public class Program {
                         System.out.print("Target: ");
                         ChessPosition target = UI.readChessPosition(sc);
 
-                        ChessPiece capturedPiece = chessMatch.perforChessMove(source, target);
+                        ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
                     }
                     catch (Chess.ChessException e){
                         System.out.println(e.getMessage());
-                        sc.nextLine();
-                        
+                        sc.nextLine();   
                     }
+                    catch (InputMismatchException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
                 }
     }
     

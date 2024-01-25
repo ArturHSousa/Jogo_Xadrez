@@ -24,6 +24,10 @@ public abstract class ChessPiece extends Piece {
     public Color getColor() { //DEIXADO APENAS O "GET" POIS O "SET" ABRIRIA ESPAÇO PARA QUE POSSAM ALTERAR A COR DAS PEÇAS
         return color;
     }
+    
+    public ChessPosition getChessPosition() {
+	return ChessPosition.fromPosition(position);
+    }
 
     
     protected boolean isThereOpponentPiece(Position position){

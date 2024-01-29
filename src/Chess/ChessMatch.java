@@ -12,6 +12,7 @@ import boardgame.Position;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.border.Border;
 
 /**
  *
@@ -23,6 +24,7 @@ public class ChessMatch {
     private Color currentPlayer;
     private Board board;
     private boolean check;
+    private boolean checkMate;
 	
         //Lista para ter controle de quantas peças foram capturadas e quantas estão no tabuleiro
     	private List<Piece> piecesOnTheBoard = new ArrayList<>();
@@ -45,6 +47,10 @@ public class ChessMatch {
 
         public boolean getCheck() {
             return check;
+	}
+        
+        public boolean getCheckMate() {
+            return checkMate;
 	}
         
 	public ChessPiece[][] getPieces() {
@@ -77,9 +83,16 @@ public class ChessMatch {
 	}
 
             check = (testCheck(opponent(currentPlayer))) ? true : false;
+            
+    
+		if (testCheckMate(opponent(currentPlayer))) {
+			checkMate = true;
+		}
+		else {
+			nextTurn();
+		}
 
-        nextTurn();
-        return (ChessPiece)capturedPiece;
+                return (ChessPiece)capturedPiece;
 	}
 	
 	private Piece makeMove(Position source, Position target) {
@@ -141,7 +154,7 @@ public class ChessMatch {
                              return (ChessPiece)p;
                      }
              }
-            throw new IllegalStateException("Não existe o Rei n cor: " + color + " no tabuleiro");
+            throw new IllegalStateException("Não existe Rei na cor: " + color + " no tabuleiro");
              }
              //Esse "testeCheck" vai testar os movimentos possiveis de todas a peças do adversario da rodada para saber se em algum desses movimentos o Rei pode estar sobe Check
         private boolean testCheck(Color color) {
@@ -156,6 +169,31 @@ public class ChessMatch {
              }
             return false;
      }
+          
+	private boolean testCheckMate(Color color) {
+		if (!testCheck(color)) {
+			return false;
+		}
+		List<Piece> list = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == color).collect(Collectors.toList());
+		for (Piece p : list) {
+			boolean[][] mat = p.possibleMoves();
+			for (int i=0; i<board.getRows(); i++) {
+				for (int j=0; j<board.getColumns(); j++) {
+					if (mat[i][j]) {
+						Position source = ((ChessPiece)p).getChessPosition().toPosition();
+						Position target = new Position(i, j);
+						Piece capturedPiece = makeMove(source, target);
+						boolean testCheck = testCheck(color);
+						undoMove(source, target, capturedPiece);
+						if (!testCheck) {
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}	
 
         private void placeNewPiece(char column, int row, ChessPiece piece){
             board.placePiece(piece,new ChessPosition(column, row).toPosition());
@@ -164,19 +202,12 @@ public class ChessMatch {
 
         private void initialSetup(){
 
-        placeNewPiece('c', 1, new Rook(Color.WHITE, board));
-        placeNewPiece('c', 2, new Rook(Color.WHITE, board));
-        placeNewPiece('d', 2, new Rook(Color.WHITE, board));
-        placeNewPiece('e', 2, new Rook(Color.WHITE, board));
-        placeNewPiece('e', 1, new Rook(Color.WHITE, board));
-        placeNewPiece('d', 1, new King(Color.WHITE, board));
-
-        placeNewPiece('c', 7, new Rook(Color.BLACK, board));
-        placeNewPiece('c', 8, new Rook(Color.BLACK, board));
-        placeNewPiece('d', 7, new Rook(Color.BLACK, board));
-        placeNewPiece('e', 7, new Rook(Color.BLACK, board));
-        placeNewPiece('e', 8, new Rook(Color.BLACK, board));
-        placeNewPiece('d', 8, new King(Color.BLACK, board));
+        placeNewPiece('h', 7, new Rook(Color.WHITE, board));
+        placeNewPiece('d', 1, new Rook(Color.WHITE, board));
+        placeNewPiece('e', 1, new King(Color.WHITE, board));
+        
+        placeNewPiece('b', 8, new Rook(Color.BLACK, board));
+        placeNewPiece('a', 8, new King(Color.BLACK, board));
    }
 
 

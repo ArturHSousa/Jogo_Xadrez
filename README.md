@@ -1,6 +1,7 @@
 Jogo de Xadrez completamente funcional (apenas pelo console)
 
 Recomendado uso do "GitBash" para que não tenha nenhum erro em diferentes IDEs
+
 Nem todas IDEs conseguem ler cores e caracteres especiais
 
 Bom Jogo! :D

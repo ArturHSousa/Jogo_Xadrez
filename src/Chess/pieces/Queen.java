@@ -20,7 +20,7 @@ public class Queen extends Chess.ChessPiece{
 
 	@Override
 	public String toString() {
-		return "Q";
+		return "♕";
 	}
 
 	@Override

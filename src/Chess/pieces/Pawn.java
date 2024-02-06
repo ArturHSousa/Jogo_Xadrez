@@ -22,7 +22,7 @@ public class Pawn extends ChessPiece {
 
     @Override
     public String toString() {
-	return "P";
+	return "♙";
     }
 	@Override
 	public boolean[][] possibleMoves() {

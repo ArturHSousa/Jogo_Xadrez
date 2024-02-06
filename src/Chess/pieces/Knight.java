@@ -21,7 +21,7 @@ public class Knight extends Chess.ChessPiece{
 
 	@Override
 	public String toString() {
-		return "N";
+		return "♘";
 	}
 
 	private boolean canMove(Position position) {

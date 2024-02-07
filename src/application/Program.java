@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Program {
 
     //[][] mat (matriz)
-    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o NetBeans com o tema "Dark Nimbus" ou o GitBash
+    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o GitBash
     
     public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);

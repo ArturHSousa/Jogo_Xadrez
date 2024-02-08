@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Chess.pieces;
+import Chess.ChessMatch;
 import Chess.ChessPiece;
 import Chess.Color;
 import boardgame.Board;
@@ -15,9 +16,12 @@ import boardgame.Position;
  */
 public class Bishop extends ChessPiece{
     
-	public Bishop(Color color, Board board) {
-		super(color, board);
-	}
+	private ChessMatch chessMatch;
+
+	public Bishop(Color color, Board board, ChessMatch chessMatch) {
+        super(color, board);
+        this.chessMatch = chessMatch;
+    }
 
 	@Override
 	public String toString() {

@@ -4,6 +4,7 @@
  */
 package Chess.pieces;
 
+import Chess.ChessMatch;
 import Chess.Color;
 import boardgame.Board;
 import boardgame.Position;
@@ -14,9 +15,12 @@ import boardgame.Position;
  */
 public class Queen extends Chess.ChessPiece{
     
-    public Queen(Color color, Board board) {
-		super(color, board);
-	}
+	private ChessMatch chessMatch;
+
+	public Queen(Color color, Board board, ChessMatch chessMatch) {
+        super(color, board);
+        this.chessMatch = chessMatch;
+    }
 
 	@Override
 	public String toString() {

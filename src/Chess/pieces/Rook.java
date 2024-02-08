@@ -4,6 +4,7 @@
  */
 package Chess.pieces;
 
+import Chess.ChessMatch;
 import Chess.ChessPiece;
 import Chess.Color;
 import boardgame.Board;
@@ -15,8 +16,11 @@ import boardgame.Position;
  */
 public class Rook extends ChessPiece {
     
-    public Rook(Color color, Board board) {
+	private ChessMatch chessMatch;
+
+	public Rook(Color color, Board board, ChessMatch chessMatch) {
         super(color, board);
+        this.chessMatch = chessMatch;
     }
         
     @Override

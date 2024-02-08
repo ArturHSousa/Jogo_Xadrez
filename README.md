@@ -6,5 +6,5 @@ Nem todas IDEs conseguem ler cores e caracteres especiais
 
 Bom Jogo! :D
 
-![MINGW64__d_Projetos Java NB_sistema-xadrez_src 06_02_2024 13_57_06](https://github.com/ArturHSousa/sistema-xadrez-java/assets/135179306/015bee70-f6d0-4d9b-8d58-d70f759eb8c3)
-![MINGW64__d_Projetos Java NB_sistema-xadrez_src 06_02_2024 13_52_06](https://github.com/ArturHSousa/sistema-xadrez-java/assets/135179306/6d0e91ca-4ca9-45d0-b1b4-108c246040e0)
+![MINGW64__d_Projetos Java NB_sistema-xadrez_src 08_02_2024 16_11_37](https://github.com/ArturHSousa/Jogo_Xadrez/assets/135179306/5668f0e9-5d21-48a2-bceb-23738032d4bf)
+![MINGW64__d_Projetos Java NB_sistema-xadrez_src 08_02_2024 16_14_20](https://github.com/ArturHSousa/Jogo_Xadrez/assets/135179306/ba869847-b1fd-494d-95dc-5b37edf2aa90)

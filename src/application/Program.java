@@ -35,7 +35,7 @@ public class Program {
                         System.out.print("Escolha sua Peça: ");
                         ChessPosition source = UI.readChessPosition(sc);
                         
-                        boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                    boolean[][] possibleMoves = chessMatch.possibleMoves(source);
                         UI.clearScreen();
                         UI.printBoard(chessMatch.getPieces(), possibleMoves);
                         System.out.println();
@@ -44,8 +44,13 @@ public class Program {
 
                         ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
                     
-			if (capturedPiece != null) {
+                    if (capturedPiece != null) {
 			captured.add(capturedPiece);
+			}
+                    if (chessMatch.getPromoted() != null) {
+			System.out.print("Escreva a peça que deseja receber da promoção (BISPO/CAVALO/TORRE/RAINHA): ");
+			String type = sc.nextLine();
+			chessMatch.replacePromotedPiece(type);
 			}
                     }
                     
@@ -54,9 +59,9 @@ public class Program {
                         sc.nextLine();   
                     }
                     catch (InputMismatchException e) {
-				System.out.println(e.getMessage());
-				sc.nextLine();
-			}
+			System.out.println(e.getMessage());
+			sc.nextLine();
+		}
                 }
 		UI.clearScreen();
 		UI.printMatch(chessMatch, captured); 

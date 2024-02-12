@@ -19,9 +19,9 @@ import java.util.Scanner;
  */
 public class Program {
 
-    //[][] mat (matriz)
-    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o GitBash
     
+    //Para a impressão funcionar deve usar um terminal colorido, no meu caso eu uso o GitBash
+    //[][] mat (matriz)
     public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
@@ -49,8 +49,12 @@ public class Program {
 			}
                     if (chessMatch.getPromoted() != null) {
 			System.out.print("Escreva a peça que deseja receber da promoção (BISPO/CAVALO/TORRE/RAINHA): ");
-			String type = sc.nextLine();
-			chessMatch.replacePromotedPiece(type);
+					String type = sc.nextLine().toUpperCase();
+					while (!type.equals("BISPO") && !type.equals("CAVALO") && !type.equals("TORRE") & !type.equals("RAINHA")) {
+						System.out.print("Peça Invalida! Escreva a peça que deseja receber da promoção (BISPO/CAVALO/TORRE/RAINHA: ");
+						type = sc.nextLine().toUpperCase();
+					}
+                                        chessMatch.replacePromotedPiece(type);
 			}
                     }
                     
